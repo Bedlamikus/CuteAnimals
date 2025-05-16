@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
 
     [SerializeField] private SpriteRenderer spriteShape;
     [SerializeField] private SpriteRenderer spriteAnimal;
+    [SerializeField] private Collider2D selfCollider;
+    [SerializeField] private Rigidbody2D selfRigidbody;
 
     private void Start()
     {
@@ -16,9 +18,21 @@ public class Item : MonoBehaviour
         Init(poolAnimals, poolColors);
     }
 
-    public void Init(PoolAnimals poolAnimals, PoolColors poolColor)
+    private void OnMouseUp()
+    {
+        GlobalEvents.SelectItem.Invoke(this);
+    }
+
+    private void Init(PoolAnimals poolAnimals, PoolColors poolColor)
     {
         spriteAnimal.sprite = poolAnimals.GetSpriteByAnimal(animal);
         spriteShape.color = poolColor.GetColorByColorType(colorType);
+    }
+
+    public void Disable()
+    {
+        selfCollider.enabled = false;
+        selfRigidbody.isKinematic = true;
+        selfRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }

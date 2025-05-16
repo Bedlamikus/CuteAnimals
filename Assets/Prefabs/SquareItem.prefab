@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7541431322795416159}
@@ -217,6 +217,8 @@ MonoBehaviour:
   colorType: 0
   spriteShape: {fileID: 1571380779345776520}
   spriteAnimal: {fileID: 476156172711972844}
+  selfCollider: {fileID: 8496990756115341454}
+  selfRigidbody: {fileID: 665802838525050471}
 --- !u!61 &8496990756115341454
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5050823232170853768}
@@ -217,6 +217,8 @@ MonoBehaviour:
   colorType: 0
   spriteShape: {fileID: 3294900489303572824}
   spriteAnimal: {fileID: 6644529551605452486}
+  selfCollider: {fileID: 602964963608145589}
+  selfRigidbody: {fileID: 4910797546906260931}
 --- !u!60 &602964963608145589
 PolygonCollider2D:
   m_ObjectHideFlags: 0
