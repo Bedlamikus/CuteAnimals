@@ -5,7 +5,8 @@ public enum Shape
 {
     Circle,
     Triangle,
-    Square
+    Square,
+    Hexagon
 }
 
 [Serializable]
