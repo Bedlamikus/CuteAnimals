@@ -4,6 +4,7 @@ public class Item : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteShape;
     [SerializeField] private SpriteRenderer spriteAnimal;
+    [SerializeField] private SpriteRenderer spriteBackGround;
     [SerializeField] private Collider2D selfCollider;
     [SerializeField] private Rigidbody2D selfRigidbody;
 
@@ -28,6 +29,7 @@ public class Item : MonoBehaviour
         Disable();
         spriteShape.enabled = false;
         spriteAnimal.enabled = false;
+        spriteBackGround.enabled = false;
     }
 
     public void Show()
@@ -35,6 +37,7 @@ public class Item : MonoBehaviour
         Enable();
         spriteShape.enabled = true;
         spriteAnimal.enabled = true;
+        spriteBackGround.enabled = true;
     }
 
     public void Disable()

@@ -22,6 +22,7 @@ public class GeneratorItems : MonoBehaviour
         GenerateItems();
         RandomizeItems();
         ShowItems();
+        GlobalEvents.RefreshItems.AddListener(RefreshItems);
     }
 
     private void GenerateItems()
@@ -37,7 +38,7 @@ public class GeneratorItems : MonoBehaviour
                 Item item = Instantiate(itemPrefabs[itemIndex]);
                 item.Init(spriteAnimal.sprite, spriteColor.color, i);
                 itemsList.Add(item);
-                item.gameObject.SetActive(false);
+                item.Hide();
             }
         }
     }
@@ -67,9 +68,24 @@ public class GeneratorItems : MonoBehaviour
             for (int j = 0; j < columns; j++)
             {
                 itemsList[i * columns + j].transform.position = transform.position + Vector3.right * margin * j;
-                itemsList[i * columns + j].gameObject.SetActive(true);
+                itemsList[i * columns + j].Show();
+                yield return new WaitForSeconds(cooldownBeetwenLines / columns);
             }
             yield return new WaitForSeconds(cooldownBeetwenLines);
         }
+    }
+
+    private void HideItems()
+    {
+        for (int i = 0; i < itemsList.Count; i++)
+        {
+            itemsList[i].Hide();
+        }
+    }
+
+    private void RefreshItems()
+    {
+        HideItems();
+        ShowItems();
     }
 }

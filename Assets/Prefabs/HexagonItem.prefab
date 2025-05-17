@@ -212,11 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a280d7030bafe4bae01f59de6b48e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shape: 3
-  animal: 0
-  colorType: 0
   spriteShape: {fileID: 3294900489303572824}
   spriteAnimal: {fileID: 6644529551605452486}
+  spriteBackGround: {fileID: 6932203674482356856}
   selfCollider: {fileID: 602964963608145589}
   selfRigidbody: {fileID: 4910797546906260931}
 --- !u!60 &602964963608145589

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7097439461355387930}
   - component: {fileID: 1773314346627843856}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,11 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a280d7030bafe4bae01f59de6b48e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shape: 2
-  animal: 0
-  colorType: 0
   spriteShape: {fileID: 1571380779345776520}
   spriteAnimal: {fileID: 476156172711972844}
+  spriteBackGround: {fileID: 1773314346627843856}
   selfCollider: {fileID: 8496990756115341454}
   selfRigidbody: {fileID: 665802838525050471}
 --- !u!61 &8496990756115341454
