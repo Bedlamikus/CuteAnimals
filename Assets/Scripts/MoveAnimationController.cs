@@ -31,6 +31,7 @@ public class MoveAnimationController : MonoBehaviour
 
         item.transform.position = position;
         item.transform.rotation = rotation;
+        GlobalEvents.MoveAnimationEnd.Invoke();
     }
 
 }

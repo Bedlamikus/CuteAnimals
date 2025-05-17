@@ -8,6 +8,7 @@ public class FreePoints : MonoBehaviour
     private void Start()
     {
         GlobalEvents.SelectItem.AddListener(TryMoveItemToFreePoint);
+        GlobalEvents.MoveAnimationEnd.AddListener(CheckEqualsItems);
     }
 
     private void TryMoveItemToFreePoint(Item item)
@@ -38,5 +39,44 @@ public class FreePoints : MonoBehaviour
         }
 
         return -1;
+    }
+
+    private void CheckEqualsItems()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null)
+            {
+                int id = items[i].GetID;
+                int count = 1;
+                for (int j = i + 1; j < points.Length; j ++)
+                {
+                    if (items[j] != null && items[j].GetID == id)
+                    {
+                        count++;
+                    }
+                }
+                if (count >= 3)
+                {
+                    for (int j = 0; j < items.Length; j++)
+                    {
+                        if (items[j] != null && items[j].GetID == id && count > 0)
+                        {
+                            count--;
+                            GlobalEvents.DestroyItem.Invoke(CleanItem(j));
+                            points[j].SetFree();
+                            GlobalEvents.PlayParticles.Invoke(points[j].transform.position);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private Item CleanItem(int index)
+    {
+        Item item = items[index];
+        items[index] = null;
+        return item;
     }
 }

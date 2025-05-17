@@ -11,6 +11,8 @@ public class ParticlesPool : MonoBehaviour
 
     private void Start()
     {
+        GlobalEvents.PlayParticles.AddListener(PlayParticles);
+
         for (int i = 0; i < presetCount; i++) 
         {
             CreateItem();
@@ -35,5 +37,12 @@ public class ParticlesPool : MonoBehaviour
             }
         }
         return CreateItem();
+    }
+
+    private void PlayParticles(Vector3 position)
+    {
+        var particle = GetParticle();
+        particle.transform.position = position;
+        particle.SetActive(true);
     }
 }

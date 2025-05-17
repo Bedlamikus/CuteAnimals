@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class GeneratorItems : MonoBehaviour
 {
@@ -23,6 +22,7 @@ public class GeneratorItems : MonoBehaviour
         RandomizeItems();
         ShowItems();
         GlobalEvents.RefreshItems.AddListener(RefreshItems);
+        GlobalEvents.DestroyItem.AddListener(DestroyItem);
     }
 
     private void GenerateItems()
@@ -87,5 +87,11 @@ public class GeneratorItems : MonoBehaviour
     {
         HideItems();
         ShowItems();
+    }
+
+    private void DestroyItem(Item item)
+    {
+        itemsList.Remove(item);
+        item.Hide();
     }
 }
