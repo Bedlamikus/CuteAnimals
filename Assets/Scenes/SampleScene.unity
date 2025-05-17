@@ -1718,6 +1718,7 @@ GameObject:
   - component: {fileID: 1433630010}
   - component: {fileID: 1433630012}
   - component: {fileID: 1433630013}
+  - component: {fileID: 1433630014}
   m_Layer: 0
   m_Name: Pools
   m_TagString: Untagged
@@ -1801,6 +1802,20 @@ MonoBehaviour:
     color: {r: 0.13679248, g: 0.86887646, b: 1, a: 1}
   - colorType: 5
     color: {r: 0.6662969, g: 1, b: 0.21226418, a: 1}
+--- !u!114 &1433630014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433630009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1487045cdb7674ea5d58e1e709671f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlesPrefab: {fileID: 3949453263194246291, guid: 8d706bbd6f3da9740a0b032143d2d920, type: 3}
+  presetCount: 5
 --- !u!1 &1451253806
 GameObject:
   m_ObjectHideFlags: 0
