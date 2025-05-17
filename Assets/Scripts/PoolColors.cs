@@ -15,4 +15,9 @@ public class PoolColors : MonoBehaviour
         }
         return Color.black;
     }
+
+    public SpriteColor GetRandomColor()
+    {
+        return colors[Random.Range(0, colors.Length)];
+    }
 }

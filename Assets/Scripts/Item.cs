@@ -2,31 +2,39 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private Shape shape;
-    [SerializeField] private Animal animal;
-    [SerializeField] private ColorType colorType;
-
     [SerializeField] private SpriteRenderer spriteShape;
     [SerializeField] private SpriteRenderer spriteAnimal;
     [SerializeField] private Collider2D selfCollider;
     [SerializeField] private Rigidbody2D selfRigidbody;
 
-    private void Start()
-    {
-        var poolAnimals = FindAnyObjectByType<PoolAnimals>();
-        var poolColors = FindAnyObjectByType<PoolColors>();
-        Init(poolAnimals, poolColors);
-    }
+    private int ID = 0;
 
     private void OnMouseUp()
     {
         GlobalEvents.SelectItem.Invoke(this);
     }
 
-    private void Init(PoolAnimals poolAnimals, PoolColors poolColor)
+    public void Init(Sprite animal, Color color, int ID)
     {
-        spriteAnimal.sprite = poolAnimals.GetSpriteByAnimal(animal);
-        spriteShape.color = poolColor.GetColorByColorType(colorType);
+        spriteAnimal.sprite = animal;
+        spriteShape.color = color;
+        this.ID = ID;
+    }
+
+    public int GetID => ID;
+
+    public void Hide()
+    {
+        Disable();
+        spriteShape.enabled = false;
+        spriteAnimal.enabled = false;
+    }
+
+    public void Show()
+    {
+        Enable();
+        spriteShape.enabled = true;
+        spriteAnimal.enabled = true;
     }
 
     public void Disable()
@@ -34,5 +42,12 @@ public class Item : MonoBehaviour
         selfCollider.enabled = false;
         selfRigidbody.isKinematic = true;
         selfRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void Enable()
+    {
+        selfCollider.enabled = true;
+        selfRigidbody.isKinematic = false;
+        selfRigidbody.constraints = RigidbodyConstraints2D.None;
     }
 }

@@ -15,4 +15,9 @@ public class PoolAnimals : MonoBehaviour
         }
         return null;
     }
+
+    public SpriteAnimal GetRandomAnimal()
+    {
+        return animals[Random.Range(0, animals.Length)];
+    }
 }
