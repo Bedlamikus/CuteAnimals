@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FreePoints : MonoBehaviour
@@ -47,7 +48,10 @@ public class FreePoints : MonoBehaviour
         {
             if (items[i] != null)
             {
+                //member id
                 int id = items[i].GetID;
+
+                //check count id
                 int count = 1;
                 for (int j = i + 1; j < points.Length; j ++)
                 {
@@ -56,6 +60,8 @@ public class FreePoints : MonoBehaviour
                         count++;
                     }
                 }
+
+                //if count >= 3 remove items
                 if (count >= 3)
                 {
                     for (int j = 0; j < items.Length; j++)
@@ -71,6 +77,19 @@ public class FreePoints : MonoBehaviour
                 }
             }
         }
+        CheckGameOver();
+    }
+
+    private void CheckGameOver()
+    {
+        List<int> countItems = new();
+
+        foreach (var item in items)
+        {
+            if (item == null) return;
+        }
+
+        GlobalEvents.GameOver.Invoke();
     }
 
     private Item CleanItem(int index)

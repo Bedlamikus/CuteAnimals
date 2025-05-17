@@ -93,5 +93,10 @@ public class GeneratorItems : MonoBehaviour
     {
         itemsList.Remove(item);
         item.Hide();
+
+        if (itemsList.Count == 0)
+        {
+            GlobalEvents.GameWin.Invoke();
+        }
     }
 }
