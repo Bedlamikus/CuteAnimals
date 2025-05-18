@@ -8,6 +8,8 @@ public class GlobalEvents : MonoBehaviour
     public static UnityEvent RefreshItems = new();
     public static UnityEvent<Item> DestroyItem = new();
     public static UnityEvent MoveAnimationEnd = new();
+    public static UnityEvent StartGenerateItems = new();
+    public static UnityEvent EndGenerateItems = new();
     public static UnityEvent<Vector3> PlayParticles = new();
 
     public static UnityEvent GameOver = new();

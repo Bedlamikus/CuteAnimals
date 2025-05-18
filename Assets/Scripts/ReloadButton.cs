@@ -9,8 +9,10 @@ public class ReloadButton : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(Refresh);
-        GlobalEvents.GameOver.AddListener(GameOver);
-        GlobalEvents.GameWin.AddListener(GameOver);
+        GlobalEvents.GameOver.AddListener(Deactivate);
+        GlobalEvents.GameWin.AddListener(Deactivate);
+        GlobalEvents.StartGenerateItems.AddListener(Deactivate);
+        GlobalEvents.EndGenerateItems.AddListener(Activate);
     }
 
     private void Refresh()
@@ -18,8 +20,13 @@ public class ReloadButton : MonoBehaviour
         GlobalEvents.RefreshItems.Invoke();
     }
 
-    private void GameOver()
+    private void Deactivate()
     {
         button.onClick.RemoveAllListeners();
+    }
+
+    private void Activate()
+    {
+        button.onClick.AddListener(Refresh);
     }
 }

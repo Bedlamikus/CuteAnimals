@@ -19,7 +19,6 @@ public class GeneratorItems : MonoBehaviour
     private void Start()
     {
         GenerateItems();
-        RandomizeItems();
         ShowItems();
         GlobalEvents.RefreshItems.AddListener(RefreshItems);
         GlobalEvents.DestroyItem.AddListener(DestroyItem);
@@ -59,6 +58,8 @@ public class GeneratorItems : MonoBehaviour
 
     private void ShowItems()
     {
+        GlobalEvents.StartGenerateItems.Invoke();
+        RandomizeItems();
         StartCoroutine(AnimationShowItems());
     }
 
@@ -74,6 +75,7 @@ public class GeneratorItems : MonoBehaviour
             }
             yield return new WaitForSeconds(cooldownBeetwenLines);
         }
+        GlobalEvents.EndGenerateItems.Invoke();
     }
 
     private void HideItems()
