@@ -65,14 +65,15 @@ public class GeneratorItems : MonoBehaviour
 
     private IEnumerator AnimationShowItems()
     {
-        for (int i = 0; i < itemsList.Count / columns; i++) 
+        for (int i = 0; i < itemsList.Count; i++) 
         {
-            for (int j = 0; j < columns; j++)
+            for (int j = 0; j < columns && i + j < itemsList.Count; j++)
             {
-                itemsList[i * columns + j].transform.position = transform.position + Vector3.right * margin * j;
-                itemsList[i * columns + j].Show();
+                itemsList[i + j].transform.position = transform.position + Vector3.right * margin * j;
+                itemsList[i + j].Show();
                 yield return new WaitForSeconds(cooldownBeetwenLines / columns);
             }
+            i += columns - 1;
             yield return new WaitForSeconds(cooldownBeetwenLines);
         }
         GlobalEvents.EndGenerateItems.Invoke();
