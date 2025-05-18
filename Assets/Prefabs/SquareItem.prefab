@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a280d7030bafe4bae01f59de6b48e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shape: 2
   spriteShape: {fileID: 1571380779345776520}
   spriteAnimal: {fileID: 476156172711972844}
   spriteBackGround: {fileID: 1773314346627843856}

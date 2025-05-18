@@ -36,7 +36,8 @@ public class GeneratorItems : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 Item item = Instantiate(itemPrefabs[itemIndex]);
-                item.Init(spriteAnimal.sprite, spriteColor.color, i);
+                item.Init(spriteAnimal, spriteColor, i);
+                item.SetID(GetEqualsID(i, item));
                 itemsList.Add(item);
                 item.Hide();
             }
@@ -98,5 +99,20 @@ public class GeneratorItems : MonoBehaviour
         {
             GlobalEvents.GameWin.Invoke();
         }
+    }
+
+    private int GetEqualsID(int index, Item item)
+    {
+        foreach (Item item1 in itemsList)
+        {
+            if (item1 != null && 
+                item1.GetShape == item.GetShape &&
+                item1.GetColor.colorType == item.GetColor.colorType &&
+                item1.GetAnimal.animal == item.GetAnimal.animal)
+            {
+                return item1.GetID;
+            }
+        }
+        return index;
     }
 }
